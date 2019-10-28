@@ -11,6 +11,8 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+library(opinion.classifier)
+options(width = 90)
 ```
 
 # opinion.classifier
@@ -18,9 +20,13 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN status](https://www.r-pkg.org/badges/version/opinion.classifier)](https://CRAN.R-project.org/package=opinion.classifier)
+[![Travis build status](https://travis-ci.org/mkearney/opinion.classifier.svg?branch=master)](https://travis-ci.org/mkearney/opinion.classifier)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/mkearney/opinion.classifier?branch=master&svg=true)](https://ci.appveyor.com/project/mkearney/opinion.classifier)
 <!-- badges: end -->
 
-The goal of opinion.classifier is to ...
+A machine learning classification model for measuring opinion, or editorial, 
+content in news text. The model was trained using editorial and news content 
+from highly regarded, well-known journalism outlets.
 
 ## Installation
 
@@ -30,27 +36,17 @@ You can install the released version of opinion.classifier from [CRAN](https://C
 install.packages("opinion.classifier")
 ```
 
+or the development version from Github
+
+``` r
+remotes::install_github("mkearney/opinion.classifier")
+```
+
+
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Get opinion probability estimate 
 
-```{r example}
-library(opinion.classifier)
-## basic example code
+```{r, eval=FALSE}
+opinion.classifier::opinion_score(x)
 ```
-
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
